@@ -23,8 +23,21 @@ form.addEventListener('submit', function(event){
 
 
     const isValid = true;
-    return;
     const messages = [];
+
+    feedbackDiv.style.display ='block';
+
+    if(isValid===true){
+        feedbackDiv.textContent = 'Registration successful!';
+        feedbackDiv.style.color = '#28a745';
+    } else{
+        messages.push = 'Registration failed <br>';
+        feedbackDiv.innerHTML = 'Registration failed <br>';
+        feedbackDiv.style.color = '#dc3545';
+    };
+
+
+
 
     if(myUserName.length < 3){
         isValid = false;
@@ -43,16 +56,4 @@ form.addEventListener('submit', function(event){
 
     form.submit(); 
 });
-
-feedbackDiv.style.display ='block';
-
-    if(isValid=true){
-        feedbackDiv.textContent = 'Registration successful!';
-        feedbackDiv.style.color = '#28a745';
-    } else{
-        messages.push = 'Registration failed <br>';
-        feedbackDiv.innerHTML = 'Registration failed <br>';
-        feedbackDiv.style.color = '#dc3545';
-    };
-
 
