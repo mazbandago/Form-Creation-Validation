@@ -23,6 +23,7 @@ form.addEventListener('submit', function(event){
 
 
     const isValid = true;
+    return;
     const messages = [];
 
     if(myUserName.length < 3){
@@ -30,7 +31,7 @@ form.addEventListener('submit', function(event){
         messages.push = 'your username is too short';
     };
 
-    if (myEmail.!includes "@" && "."){
+    if (myEmail.includes "@" && "."){
         isValid = false;
         messages.push = 'check your email and add @';
     };
@@ -40,7 +41,10 @@ form.addEventListener('submit', function(event){
         messages.push = 'password too short, try again';
     };
 
-    feedbackDiv.style.display ='block';
+    form.submit(); 
+});
+
+feedbackDiv.style.display ='block';
 
     if(isValid=true){
         feedbackDiv.textContent = 'Registration successful!';
@@ -51,6 +55,4 @@ form.addEventListener('submit', function(event){
         feedbackDiv.style.color = '#dc3545';
     };
 
-    form.submit(); 
-});
 
