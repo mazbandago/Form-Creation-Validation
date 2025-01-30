@@ -9,21 +9,36 @@ const feedbackDiv = document.getElementById('form-feedback');
 form.addEventListener('submit', function(event){
     event.preventDefualt();
 
-   const myUserName = document.getElementById('username');
+   const username = document.getElementById('username');
     const userNameValue = document.getElementById('username').ariaValueMax;
-    myUserName = userNameValue.trim();
+    username = userNameValue.trim();
 
-    const myEmail = document.getElementById('email');
+    const email = document.getElementById('email');
     const emailValue = document.getElementById('email').value;
-    myEmail = emailValue.trim();
+    email = emailValue.trim();
 
-    const myPassword = document.getElementById('password');
+    const password = document.getElementById('password');
     const passwordValue = document.getElementById('password').value;
-    myPassword = passwordValue.trim();
+    password = passwordValue.trim();
 
 
     const isValid = true;
     const messages = [];
+
+    if(username.length < 3){
+        isValid = false;
+        messages.push = 'your username is too short';
+    };
+
+    if (email.includes "@" && "."){
+        isValid = false;
+        messages.push = 'check your email and add @';
+    };
+
+    if(password.lengh <= 8){
+        isValid = false
+        messages.push = 'password too short, try again';
+    };
 
     feedbackDiv.style.display ='block';
 
@@ -34,24 +49,6 @@ form.addEventListener('submit', function(event){
         messages.push = 'Registration failed <br>';
         feedbackDiv.innerHTML = 'Registration failed <br>';
         feedbackDiv.style.color = '#dc3545';
-    };
-
-
-
-
-    if(myUserName.length < 3){
-        isValid = false;
-        messages.push = 'your username is too short';
-    };
-
-    if (myEmail.includes "@" && "."){
-        isValid = false;
-        messages.push = 'check your email and add @';
-    };
-
-    if(myPassword.lengh <= 8){
-        isValid = false
-        messages.push = 'password too short, try again';
     };
 
     form.submit(); 
