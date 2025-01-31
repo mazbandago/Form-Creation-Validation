@@ -21,20 +21,8 @@ form.addEventListener('submit', function(event){
     const passwordValue = document.getElementById('password').value;
     password = passwordValue.trim();
 
-
     const isValid = true;
     const messages = [];
-
-    feedbackDiv.style.display ="block";
-
-    if(isValid===true){
-        feedbackDiv.textContent = 'Registration successful!';
-        feedbackDiv.style.color = '#28a745';
-    } else{
-        messages.push = 'Registration failed <br>';
-        feedbackDiv.innerHTML = 'Registration failed <br>';
-        feedbackDiv.style.color = '#dc3545';
-    };
 
     if(username.length < 3){
         isValid = false;
@@ -51,7 +39,15 @@ form.addEventListener('submit', function(event){
         messages.push = 'password too short, try again';
     };
 
-    
+    feedbackDiv.style.display ="block";
+    if(isValid===true){
+        feedbackDiv.textContent = 'Registration successful!';
+        feedbackDiv.style.color = '#28a745';
+    } else{
+        messages.push = 'Registration failed <br>';
+        feedbackDiv.innerHTML = 'Registration failed <br>';
+        feedbackDiv.style.color = '#dc3545';
+    };
 
     form.submit(); 
 });
