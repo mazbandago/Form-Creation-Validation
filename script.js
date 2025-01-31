@@ -29,10 +29,10 @@ form.addEventListener('submit', function(event){
         messages.push = 'your username is too short';
     };
 
-    if (email.includes "@" && "."){
-        isValid = false;
-        messages.push = 'check your email and add @';
-    };
+    // if (email.includes "@" && "."){
+    //     isValid = false;
+    //     messages.push = 'check your email and add @';
+    // };
 
     if(password.lengh <= 8){
         isValid = false
@@ -43,6 +43,7 @@ form.addEventListener('submit', function(event){
     if(isValid===true){
         feedbackDiv.textContent = 'Registration successful!';
         feedbackDiv.style.color = '#28a745';
+        return;
     } else{
         messages.push = 'Registration failed <br>';
         feedbackDiv.innerHTML = 'Registration failed <br>';
