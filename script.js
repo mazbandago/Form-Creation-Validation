@@ -10,7 +10,7 @@ form.addEventListener('submit', function(event){
     event.preventDefualt();
 
    const username = document.getElementById('username');
-    const userNameValue = document.getElementById('username').ariaValueMax;
+    const userNameValue = document.getElementById('username').Value;
     username = userNameValue.trim();
 
     const email = document.getElementById('email');
@@ -24,6 +24,17 @@ form.addEventListener('submit', function(event){
 
     const isValid = true;
     const messages = [];
+
+    feedbackDiv.style.display ="block";
+
+    if(isValid===true){
+        feedbackDiv.textContent = 'Registration successful!';
+        feedbackDiv.style.color = '#28a745';
+    } else{
+        messages.push = 'Registration failed <br>';
+        feedbackDiv.innerHTML = 'Registration failed <br>';
+        feedbackDiv.style.color = '#dc3545';
+    };
 
     if(username.length < 3){
         isValid = false;
@@ -40,16 +51,7 @@ form.addEventListener('submit', function(event){
         messages.push = 'password too short, try again';
     };
 
-    feedbackDiv.style.display ='block';
-
-    if(isValid===true){
-        feedbackDiv.textContent = 'Registration successful!';
-        feedbackDiv.style.color = '#28a745';
-    } else{
-        messages.push = 'Registration failed <br>';
-        feedbackDiv.innerHTML = 'Registration failed <br>';
-        feedbackDiv.style.color = '#dc3545';
-    };
+    
 
     form.submit(); 
 });
