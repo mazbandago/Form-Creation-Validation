@@ -45,7 +45,7 @@ form.addEventListener('submit', function(event){
         feedbackDiv.style.color = '#28a745';
         return;
     } else{
-        messages.push = 'Registration failed <br>';
+        messages.join = 'Registration failed <br>';
         feedbackDiv.innerHTML = 'Registration failed <br>';
         feedbackDiv.style.color = '#dc3545';
     };
