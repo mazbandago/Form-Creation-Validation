@@ -1,34 +1,32 @@
+const dataContainer = document.getElementById('api-data');
+const userList = document.createElement('ul');
 async function fetchUserData(){
     const apiUrl = 'https://jsonplaceholder.typicode.com/users';
-
-    const dataContainer = document.getElementById('api-data');
-    
     try{
-        const apiUrl = await fetch('https://jsonplaceholder.typicode.com/users');
-        if(!response.ok){
-            const response = 'Network is not readily available';
+        const response = await fetch(apiUrl);
+
+        if(response.ok){
+          const users = await response.json();
+          users.forEach((user) => {
+          let li = document.createElement('li');
+        
+            li.textContent = user.name;
+            userList.appendChild(li);
+
+          })
+
+        }else{
+            
         }
-        const users = await response.json();
     }
     catch(error){
-        dataContainer.innerHTML = ''.
+
+        dataContainer.innerHTML = ''
         dataContainer.textContent = 'Failed to load user data.';
     };  
-
     dataContainer.innerHTML = '';
-    
-    const userList = document.createElement('ul');
-    let users = [apiUrl];
-    users.forEach(user =>{
-        const li = createElement('li');
-        li.textContent = apiUrl;
-        li.appendChild(userList);
-        userList.appendChild(dataContainer); 
-    });
-    
-        
-};
 
-document.addEventListener("DOMContentLoaded", (fetchUserData) => {
-        console.log('success');
-});
+    dataContainer.appendChild(userList);
+
+}   
+fetchUserData();
