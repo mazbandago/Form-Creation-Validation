@@ -1,3 +1,4 @@
+document.addEventListener("DomContentLoaded", fetchUserData);
 const dataContainer = document.getElementById('api-data');
 const userList = document.createElement('ul');
 async function fetchUserData(){
@@ -29,4 +30,5 @@ async function fetchUserData(){
     dataContainer.appendChild(userList);
 
 }   
+
 fetchUserData();
