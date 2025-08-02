@@ -1,25 +1,16 @@
-document.addEventListener("DOMContentLoaded", (event) => {
-    console.log("DOM fully loaded and parsed");
-    });
-
+document.addEventListener("DOMContentLoaded", () => {
 const form = document.getElementById('registration-form');
 
 const feedbackDiv = document.getElementById('form-feedback');
 
-form.addEventListener('submit', function(event){
+form.addEventListener('submit',(event) => {
     event.preventDefualt();
 
-   const username = document.getElementById('username');
-    const userNameValue = document.getElementById('username').Value;
-    username = userNameValue.trim();
+   const username = document.getElementById('username').value.trim();
 
-    const email = document.getElementById('email');
-    const emailValue = document.getElementById('email').value;
-    email = emailValue.trim();
+    const email = document.getElementById('email').value.trim();
 
-    const password = document.getElementById('password');
-    const passwordValue = document.getElementById('password').value;
-    password = passwordValue.trim();
+    const password = document.getElementById('password').value.trim();
 
     const isValid = true;
     const messages = [];
@@ -29,9 +20,9 @@ form.addEventListener('submit', function(event){
         messages.push = 'your username is too short';
     };
 
-    if (email.includes "@" && "."){
+    if (!email.includes ("@") && !email.includes(".")){
         isValid = false;
-        messages.push = 'check your email and add @';
+        messages.push = 'check your email and add @ and .';
     };
 
     if(password.length <= 8){
@@ -40,17 +31,14 @@ form.addEventListener('submit', function(event){
     };
 
     feedbackDiv.style.display ="block";
-    if(isValid===true){
+    if(isValid){
         feedbackDiv.textContent = 'Registration successful!';
         feedbackDiv.style.color = '#28a745';
-        return;
     } else{
-        messages.join = 'Registration failed <br>';
-        feedbackDiv.innerHTML = 'Registration failed <br>';
+        feedbackDiv.innerHTML = messages.join ('<br>');
         feedbackDiv.style.color = '#dc3545';
     };
 
     form.submit(); 
+    });
 });
-
- 
